@@ -1,0 +1,9 @@
+[workspace]
+resolver = "2"
+members = ["crates/pv-core", "src-tauri"]
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
+opt-level = "s"

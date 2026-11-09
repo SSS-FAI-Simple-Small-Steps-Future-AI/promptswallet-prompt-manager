@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+/* class-based dark mode: <html class="dark"> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Fonts are bundled (latin subset) so the app looks the same offline on every OS. */
+@font-face {
+  font-family: "Inter Variable";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("@fontsource-variable/inter/files/inter-latin-wght-normal.woff2") format("woff2-variations");
+}
+@font-face {
+  font-family: "Source Serif 4 Variable";
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("@fontsource-variable/source-serif-4/files/source-serif-4-latin-wght-normal.woff2")
+    format("woff2-variations");
+}
+
+@theme {
+  /* Claude-desktop look: Inter for the interface, a book serif for headings and prompt text. */
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Noto Sans", "Noto Nastaliq Urdu", sans-serif;
+  --font-serif: "Source Serif 4 Variable", ui-serif, "Iowan Old Style", Georgia, "Times New Roman",
+    "Noto Nastaliq Urdu", serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Warm neutrals instead of cool greys. Light: cream page, darker cream panels.
+     Dark: charcoal page (#262624), darker panels (#1f1e1d). */
+  --color-slate-50: #faf9f5;
+  --color-slate-100: #f0eee6;
+  --color-slate-200: #e6e3d8;
+  --color-slate-300: #d3d0c3;
+  --color-slate-400: #a6a398;
+  --color-slate-500: #7d7b73;
+  --color-slate-600: #5e5d59;
+  --color-slate-700: #3d3d3a;
+  --color-slate-800: #353432;
+  --color-slate-900: #262624;
+  --color-slate-950: #1f1e1d;
+
+  /* Accent colour = Claude orange. (The class names still say "indigo"; to change the
+     accent of the whole app, replace these eleven values.) */
+  --color-indigo-50: #fbf0ea;
+  --color-indigo-100: #f7e1d6;
+  --color-indigo-200: #efc5b2;
+  --color-indigo-300: #e6a88d;
+  --color-indigo-400: #de8b6a;
+  --color-indigo-500: #d97757;
+  --color-indigo-600: #c15f3c;
+  --color-indigo-700: #a24d31;
+  --color-indigo-800: #7f3d28;
+  --color-indigo-900: #5b2d1e;
+  --color-indigo-950: #3a1c13;
+
+  /* Second accent (sage green) for "My Prompts", so it differs from the orange Prompts Packs. */
+  --color-moss-50: #f2f5ec;
+  --color-moss-100: #e4ebd7;
+  --color-moss-200: #cbd8b3;
+  --color-moss-300: #aebf8f;
+  --color-moss-400: #93a874;
+  --color-moss-500: #788c5d;
+  --color-moss-600: #627449;
+  --color-moss-700: #4f5d3b;
+  --color-moss-800: #3f4a30;
+  --color-moss-900: #2f3824;
+  --color-moss-950: #1d2316;
+}
+
+html {
+  /* The real size is set from Settings (hooks.ts, default 12px, range 10-18); every size in the
+     app is in rem, so it scales as a whole. --pw-scale lets the prompt text (px) follow it. */
+  font-size: 12px;
+  --pw-scale: 0.6667;
+}
+
+/* The window never scrolls as a whole (Windows/WebView2 showed a stray page scrollbar when the
+   content was a pixel too tall, e.g. with display scaling of 125%). The root is exactly the
+   window; only the panels inside it scroll. `overflow: clip` also stops scripts such as
+   scrollIntoView() from shifting the whole page, which `hidden` alone allows. */
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overflow: clip;
+}
+
+body {
+  @apply bg-slate-50 font-sans text-slate-800 antialiased dark:bg-slate-900 dark:text-slate-100;
+  overscroll-behavior: none;
+  font-feature-settings: "cv11", "ss01";
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.005em;
+}
+
+/* desktop feel: no text selection on chrome, but allow it in prompt text */
+button,
+nav,
+header {
+  user-select: none;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-indigo-500) 30%, transparent);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-full border-[3px] border-solid border-transparent bg-slate-300 bg-clip-content dark:bg-slate-700;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
