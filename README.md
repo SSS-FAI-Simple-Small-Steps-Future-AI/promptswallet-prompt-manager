@@ -31,7 +31,7 @@
 
 **Your prompts, one keystroke away. A fast, private, cross-platform desktop app (Windows, macOS, Linux) to organise, reuse and sharpen the prompts you give to ChatGPT, Claude, Gemini and any other LLM.**
 
-![PromptsWallet main window](docs/images/main-light.png)
+![PromptsWallet main window](app-preview/preview-1.webp)
 
 ## Why use PromptsWallet?
 
@@ -64,7 +64,7 @@ If you use LLMs every day, the quality of your results depends on your prompts, 
 
 Shortcuts: `Ctrl/⌘ K` search · `N` new prompt · `D` use as template · `B` favorite · `Shift C` copy the current prompt.
 
-![Fill in the blanks](docs/images/fill-in-blanks.png)
+![Fill in the blanks](app-preview/preview-2.webp)
 
 ## Download and install
 
@@ -184,7 +184,7 @@ All offered models run on NVIDIA's free endpoints (see <https://build.nvidia.com
 | Nemotron 3.5 Lightning | Quality and speed | `nvidia/nemotron-3.5-lightning-30b-a3b` |
 | GPT-OSS-20B | Lightweight optimization | `openai/gpt-oss-20b` |
 
-![Rewrite with AI](docs/images/rewrite-with-ai.png)
+![Rewrite with AI](app-preview/preview-3.webp)
 
 **Privacy:** the key is stored on your computer (in the app's local storage) and sent only to NVIDIA. Only the prompt text, the description you type and the chosen LLM are sent, and only when you press Rewrite. The request is made by the Rust side (`src-tauri/src/net.rs`): `POST https://integrate.api.nvidia.com/v1/chat/completions` with a system message (prompt-engineering rules for the chosen LLM) and a user message (your prompt and goal), using the chosen model id as `"model"`. To add a model, add it to `NVIDIA_MODELS` in both `src/lib/settings.ts` and `src-tauri/src/net.rs` (the Rust side accepts only listed ids).
 
@@ -277,7 +277,7 @@ The three ad-style banners show fixed text and links and make **no network calls
 │   └── lib/               api.ts (Tauri calls) · about.ts (branding, links) · settings.ts
 │                          hooks.ts · mock.ts (browser preview) · …
 ├── library/               Built-in starter pack (Markdown), bundled into the app
-├── docs/images/           Screenshots used in this README
+├── app-preview/           Screenshots used in this README
 └── .github/workflows/     CI: tests on every push/PR, installers on version tags
 ```
 
