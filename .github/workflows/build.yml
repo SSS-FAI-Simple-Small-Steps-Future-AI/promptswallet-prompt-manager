@@ -45,8 +45,9 @@ jobs:
             args: --target x86_64-apple-darwin
           - platform: ubuntu-22.04
             args: ""
+          # Windows: MSI only (the NSIS .exe installer did not find the bundled library/ files)
           - platform: windows-latest
-            args: ""
+            args: --bundles msi
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v4

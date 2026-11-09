@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4F46E5"/>
+      <stop offset="1" stop-color="#8B3FE8"/>
+    </linearGradient>
+    <linearGradient id="leather" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F6B94F"/>
+      <stop offset="1" stop-color="#D9822B"/>
+    </linearGradient>
+    <linearGradient id="strap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E8962F"/>
+      <stop offset="1" stop-color="#C46F1D"/>
+    </linearGradient>
+    <linearGradient id="spark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FDE68A"/>
+    </linearGradient>
+  </defs>
+  <rect x="40" y="40" width="944" height="944" rx="212" fill="url(#bg)"/>
+  <!-- prompt card sticking out of the wallet -->
+  <g transform="rotate(-9 380 400)">
+    <rect x="215" y="195" width="380" height="290" rx="44" fill="#DDD6FE"/>
+    <rect x="265" y="250" width="240" height="28" rx="14" fill="#7C3AED" opacity=".55"/>
+    <rect x="265" y="305" width="170" height="28" rx="14" fill="#7C3AED" opacity=".35"/>
+  </g>
+  <!-- banknote sticking out of the wallet -->
+  <g transform="rotate(7 640 400)">
+    <rect x="440" y="215" width="400" height="270" rx="40" fill="#4ADE80"/>
+    <rect x="466" y="241" width="348" height="218" rx="24" fill="none" stroke="#15803D" stroke-width="10" opacity=".6"/>
+    <circle cx="640" cy="350" r="62" fill="#15803D" opacity=".75"/>
+    <circle cx="640" cy="350" r="30" fill="#BBF7D0"/>
+  </g>
+  <!-- billfold wallet body -->
+  <rect x="170" y="395" width="684" height="428" rx="86" fill="url(#leather)"/>
+  <!-- stitching -->
+  <rect x="212" y="437" width="600" height="344" rx="58" fill="none" stroke="#7C3A0B" stroke-opacity=".55" stroke-width="9" stroke-dasharray="26 22" stroke-linecap="round"/>
+  <!-- snap strap + brass button -->
+  <path d="M640 520 H842 a78 78 0 0 1 0 156 H640 Z" fill="url(#strap)"/>
+  <circle cx="768" cy="598" r="40" fill="#FDE68A"/>
+  <circle cx="768" cy="598" r="22" fill="#B45309"/>
+  <!-- prompt chevron and cursor -->
+  <path d="M276 545 L372 617 L276 689" fill="none" stroke="#5B2A06" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M414 701 H504" fill="none" stroke="#5B2A06" stroke-width="44" stroke-linecap="round"/>
+  <!-- sparkle: sharpened prompt -->
+  <path d="M826 120 C834 202 858 226 940 234 C858 242 834 266 826 348 C818 266 794 242 712 234 C794 226 818 202 826 120 Z" fill="url(#spark)"/>
+</svg>

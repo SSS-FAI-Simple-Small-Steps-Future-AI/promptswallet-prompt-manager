@@ -38,7 +38,7 @@ export const ABOUT = {
    *  (Opens in the system browser.) */
   /** Import dialog links. PLACEHOLDER for the GitHub repo that holds the basic prompts packs. */
   basicPacksUrl: "https://github.com/SSS-FAI-Simple-Small-Steps-Future-AI/promptswallet-prompt-manager",
-  advancedPacksUrl: "https://aicampusmagazines.gumroad.com",
+  advancedPacksUrl: "https://aicampusmagazines.gumroad.com/l/ttwwkw",
 
   /**
    * "Rewrite with AI" uses NVIDIA's free hosted models (OpenAI-compatible chat completions).
