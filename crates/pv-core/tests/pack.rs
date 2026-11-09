@@ -580,6 +580,11 @@ fn sample(name: &str) -> PathBuf {
 
 #[test]
 fn the_sample_packs_in_the_repo_behave_as_documented() {
+    if !sample("promptswallet-pack-01M6TCPTTZE1S19QFHPYF0T097.zip").exists() {
+        eprintln!("skipped: samples/ is not present");
+        return;
+    }
+
     let f = fx();
     let v1 = sample("promptswallet-pack-01M6TCPTTZE1S19QFHPYF0T097.zip");
     let report = f.vault.inspect_pack(&v1);
